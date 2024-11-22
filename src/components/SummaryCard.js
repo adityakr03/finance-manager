@@ -1,4 +1,5 @@
 import React from 'react';
+
 function SummaryCard({ balance, netIncome, netExpense }) {
   return (
     <section className="summary-card">
@@ -12,7 +13,7 @@ function SummaryCard({ balance, netIncome, netExpense }) {
         </div>
         <div className="summary-item summary-income">
           <span>Total Income:</span>
-          <span className="amount positive">₹{netIncome.toFixed(2)}</span>
+          <span className="amount">₹{netIncome.toFixed(2)}</span>
         </div>
         <div className="summary-item summary-expense">
           <span>Total Expense:</span>

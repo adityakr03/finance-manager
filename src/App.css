@@ -1,21 +1,29 @@
-/* General Reset */
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');/* General Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Red Hat Display', sans-serif;
+}
+
+/* Enable Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
 }
 
 /* Main Body */
 body {
-  background: #000000; /* Dark background for the monochrome theme */
+  background: #121212; /* Dark background for better contrast */
+  color: #f5f5f5;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  color: #f5f5f5;
   font-size: 1rem;
   overflow-y: auto;
-  padding: 20px 0;
+  padding: 20px;
+  height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
 }
 
 /* Container */
@@ -26,35 +34,39 @@ body {
   width: 100%;
   max-width: 1200px;
   padding: 0 20px;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
 }
 
 /* Title */
+h1, h2 {
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+  animation: fadeIn 1s forwards;
+}
+
 h1 {
   font-size: 2.5rem;
-  color: #ffffff;
   margin-bottom: 20px;
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
-  text-align: center;
 }
 
 h2 {
   font-size: 1.5rem;
-  color: #ffffff;
   margin-bottom: 20px;
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
-  text-align: center;
 }
 
 /* Cards Container */
 .cards-container {
   display: flex;
-  flex-wrap: wrap; /* Allow cards to wrap onto the next line if necessary */
+  flex-wrap: wrap;
+  gap: 20px;
   justify-content: center;
-  align-items: flex-start;
-  gap: 20px; /* Space between cards */
   width: 100%;
   max-width: 1200px;
   margin-top: 20px;
+  opacity: 0;
+  animation: fadeIn 1s 0.3s forwards;
 }
 
 /* Card Styles */
@@ -68,6 +80,8 @@ h2 {
   width: 100%;
   max-width: 400px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  animation: slideUp 0.5s forwards;
 }
 
 .card:hover, .summary-card:hover {
@@ -75,22 +89,31 @@ h2 {
   box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.7);
 }
 
+.card:nth-child(odd), .summary-card:nth-child(odd) {
+  animation-delay: 0.2s;
+}
+
+.card:nth-child(even), .summary-card:nth-child(even) {
+  animation-delay: 0.4s;
+}
+
 /* Finance Summary */
 .summary-details {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  color: #51ff00; /* Green for income */
 }
 
 .summary-item {
   display: flex;
   justify-content: space-between;
   font-size: 1.1rem;
-  color: #e0e0e0;
+  color: #51ff00;
 }
 
 .summary-income {
-  color: #51ff00; /* Green for income */
+  color: white;
 }
 
 .summary-expense {
@@ -111,33 +134,31 @@ h2 {
 }
 
 /* Records List */
-/* Scrollbar Styles */
 #records-list {
   list-style: none;
-  padding-right: 5px;
   max-height: 250px;
   overflow-y: auto;
+  padding-right: 5px;
   scrollbar-width: thin; /* For Firefox */
-  scrollbar-color: #000000 #2a2a2a; /* For Firefox: thumb color and track color */
+  scrollbar-color: #000000 #2a2a2a; /* For Firefox: thumb and track colors */
 }
 
-/* Custom scrollbar for Webkit browsers (Chrome, Safari) */
 #records-list::-webkit-scrollbar {
-  width: 8px; /* Set scrollbar width */
+  width: 8px;
 }
 
 #records-list::-webkit-scrollbar-thumb {
-  background-color: #000000; /* Thumb (draggable part) color */
-  border-radius: 10px; /* Round the thumb */
+  background-color: #000000;
+  border-radius: 10px;
 }
 
 #records-list::-webkit-scrollbar-track {
-  background-color: #2a2a2a; /* Track (background of the scrollbar) color */
-  border-radius: 10px; /* Round the track */
+  background-color: #2a2a2a;
+  border-radius: 10px;
 }
 
 #records-list::-webkit-scrollbar-thumb:hover {
-  background-color: #000000; /* Change color on hover */
+  background-color: #444444;
 }
 
 #records-list li {
@@ -147,8 +168,8 @@ h2 {
   border-radius: 8px;
   color: #fff;
   font-size: 1rem;
-  text-align: left;
-  transition: background 0.3s ease;
+  text-align: center;
+  transition: background 0.3s ease, transform 0.3s ease;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -156,14 +177,22 @@ h2 {
 
 #records-list li:hover {
   background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
 }
 
 #records-list .income {
-  color: #51ff00;
+  color: #51ff00; /* Green for income */
 }
 
 #records-list .expense {
-  color: #f44336;
+  color: #f44336; /* Red for expense */
+}
+
+#records-list span {
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-left: 10px;
+  text-transform: capitalize;
 }
 
 /* Form Styles */
@@ -178,6 +207,8 @@ form {
   padding: 20px;
   width: 100%;
   max-width: 400px;
+  opacity: 0;
+  animation: fadeIn 1s 0.6s forwards;
 }
 
 form input,
@@ -190,6 +221,8 @@ form label {
   color: #fff;
   font-size: 1rem;
   width: 100%;
+  opacity: 0;
+  animation: fadeIn 1s 0.8s forwards;
 }
 
 form input:focus {
@@ -215,28 +248,262 @@ form .error {
   text-align: center;
 }
 
-/* Checkbox Style */
-/* form label {
+/* Income/Expense Toggle */
+.income-toggle {
   display: flex;
-  align-items: auto;
-  gap: 10px;
-  font-size: 1rem;  
-} */
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.income-toggle span {
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:hover.slider:before {
+  background-color: grey;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  border-radius: 50%;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #00bcd4;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider:active:before {
+  width: 28px;
+}
 
 /* Responsive Styles */
 @media (max-width: 768px) {
   .cards-container {
-    flex-direction: column; /* Stack cards vertically on smaller screens */
+    flex-direction: column;
     align-items: center;
   }
 
   .container {
-    padding: 0 10px; /* Reduce container padding on smaller screens */
+    padding: 0 10px;
   }
 
-  /* Ensure form takes up full width on mobile */
   form {
     width: 100%;
     max-width: none;
   }
+}
+
+/* Checkbox Style */
+form label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+}
+
+/* Custom Calendar Styles */
+.calendar-container {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  text-align: center;
+  opacity: 0;
+  animation: fadeIn 1s 1s forwards;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.month-year {
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  animation: fadeIn 1s 1.5s forwards;
+}
+
+.day-name {
+  font-weight: bold;
+  color: #ffffff;
+  padding: 5px;
+  animation: fadeIn 1s 2s forwards;
+}
+
+.calendar-day {
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  animation: fadeIn 1s 2.5s forwards;
+  background: rgba(255, 255, 255, 0.1); /* Slight background color */
+}
+
+.calendar-day.empty {
+  visibility: hidden;
+}
+
+.calendar-day:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-3px);  /* Lift the day slightly */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), 0 8px 20px rgba(0, 0, 0, 0.2);  /* 3D shadow effect */
+}
+
+.calendar-day.selected {
+  background: rgba(0, 188, 212, 0.8);
+  color: #ffffff;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3), 0 8px 20px rgba(0, 0, 0, 0.3); /* Shadow effect for selected date */
+}
+
+.nav-button {
+  width: 2.5rem;
+  border-radius: 100%;
+}
+
+.nav-button:hover {
+  background-color: #008c9e;
+}
+
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+.reset-btn {
+  background-color: #ff5722;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  margin: 20px;
+}
+
+.reset-btn:hover {
+  background-color: #e64a19;
+}
+
+/* Delete Button Styles */
+.delete-btn {
+  background-color: #f44336; /* Red color for the delete button */
+  color: white;
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 10px; /* Space between amount and delete button */
+}
+
+.delete-btn:hover {
+  background-color: #d32f2f; /* Darker red on hover */
+}
+
+/* Record Details Section Styling */
+.record-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.record-description,
+.record-category,
+.record-date,
+.record-amount {
+  margin-bottom: 5px;
+}
+
+.label {
+  font-weight: bold;
+  color: #fff;
+}
+
+/* Additional Formatting for Description, Category, and Date */
+.record-description,
+.record-category,
+.record-date {
+  font-size: 0.9rem;
+  color: #ccc;
+  text-align: left;
+}
+
+.record-date {
+  font-style: italic;
+}
+
+/* Adjust Record Type (Income/Expense) Styling */
+.record-amount {
+  margin-top: 5px;
+  font-size: 1rem;
 }

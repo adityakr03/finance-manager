@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState   } from 'react';
+import CustomCalendar from './CustomCalendar';
 
 function RecordForm({ addRecord }) {
   const [amount, setAmount] = useState('');
   const [category, setCategory] = useState('');
-  const [date, setDate] = useState('');
   const [description, setDescription] = useState('');
-  const [isIncome, setIsIncome] = useState(true);
+  const [isIncome, setIsIncome] = useState(true); // Default to Income
+  const [selectedDate, setSelectedDate] = useState(new Date()); // Set default to today
   const [error, setError] = useState('');
 
   const handleSubmit = (event) => {
@@ -17,24 +18,30 @@ function RecordForm({ addRecord }) {
 
     setError('');
 
+    // If description is empty, set to "Misc."
+    const finalDescription = description.trim() === '' ? 'Misc.' : description;
+
     const record = {
       amount: isIncome ? parseFloat(amount) : -parseFloat(amount),
       category,
-      date,
-      description,
+      date: selectedDate.toISOString().split('T')[0], // Format date to YYYY-MM-DD
+      description: finalDescription,
     };
+
     addRecord(record);
+
+    // Reset form fields
     setAmount('');
     setCategory('');
-    setDate('');
     setDescription('');
     setIsIncome(true);
+    setSelectedDate(new Date());
   };
 
   return (
     <section id="add-record">
       <form onSubmit={handleSubmit}>
-      <h2>Add Record</h2>
+        <h2>Add Record</h2>
         <input
           type="number"
           value={amount}
@@ -49,12 +56,8 @@ function RecordForm({ addRecord }) {
           placeholder="Category"
           required
         />
-        <input
-          type="date"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-          required
-        />
+        {/* Custom Calendar */}
+        <CustomCalendar selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
         <input
           type="text"
           value={description}
@@ -62,14 +65,20 @@ function RecordForm({ addRecord }) {
           placeholder="Description (optional)"
         />
         {error && <p className="error">{error}</p>}
-        <label>
-          <input
-            type="checkbox"
-            checked={isIncome}
-            onChange={() => setIsIncome(!isIncome)}
-          />
-          Income
-        </label>
+        
+        {/* Income/Expense Toggle */}
+        <div className="income-toggle">
+          <span>{isIncome ? 'Income' : 'Expense'}</span>
+          <label className="switch">
+            <input
+              type="checkbox"
+              checked={isIncome}
+              onChange={() => setIsIncome(!isIncome)}
+            />
+            <span className="slider"></span>
+          </label>
+        </div>
+
         <button type="submit">Add Record</button>
       </form>
     </section>
