@@ -1,38 +1,242 @@
-.App {
-  text-align: center;
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Main Body */
+body {
+  background: #000000; /* Dark background for the monochrome theme */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  color: #f5f5f5;
+  font-size: 1rem;
+  overflow-y: auto;
+  padding: 20px 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Container */
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+/* Title */
+h1 {
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+/* Cards Container */
+.cards-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow cards to wrap onto the next line if necessary */
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: flex-start;
+  gap: 20px; /* Space between cards */
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+/* Card Styles */
+.card, .summary-card {
+  background: rgba(255, 255, 255, 0.05); /* Glassmorphic effect */
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  margin: 10px;
+  width: 100%;
+  max-width: 400px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.card:hover, .summary-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.7);
+}
+
+/* Finance Summary */
+.summary-details {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1rem;
+  color: #e0e0e0;
+}
+
+.summary-income {
+  color: #51ff00; /* Green for income */
+}
+
+.summary-expense {
+  color: #f44336; /* Red for expense */
+}
+
+.amount {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.amount.positive {
+  color: #51ff00;
+}
+
+.amount.negative {
+  color: #f44336;
+}
+
+/* Records List */
+/* Scrollbar Styles */
+#records-list {
+  list-style: none;
+  padding-right: 5px;
+  max-height: 250px;
+  overflow-y: auto;
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: #000000 #2a2a2a; /* For Firefox: thumb color and track color */
+}
+
+/* Custom scrollbar for Webkit browsers (Chrome, Safari) */
+#records-list::-webkit-scrollbar {
+  width: 8px; /* Set scrollbar width */
+}
+
+#records-list::-webkit-scrollbar-thumb {
+  background-color: #000000; /* Thumb (draggable part) color */
+  border-radius: 10px; /* Round the thumb */
+}
+
+#records-list::-webkit-scrollbar-track {
+  background-color: #2a2a2a; /* Track (background of the scrollbar) color */
+  border-radius: 10px; /* Round the track */
+}
+
+#records-list::-webkit-scrollbar-thumb:hover {
+  background-color: #000000; /* Change color on hover */
+}
+
+#records-list li {
+  background: rgba(255, 255, 255, 0.1);
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 1rem;
+  text-align: left;
+  transition: background 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#records-list li:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+#records-list .income {
+  color: #51ff00;
+}
+
+#records-list .expense {
+  color: #f44336;
+}
+
+/* Form Styles */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(5px);
+  border-radius: 15px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+}
+
+form input,
+form button,
+form label {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 1rem;
+  width: 100%;
+}
+
+form input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+form button {
+  cursor: pointer;
+  background-color: #00bcd4;
+  color: #fff;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+form button:hover {
+  background-color: #008c9e;
+}
+
+form .error {
+  color: #f44336;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* Checkbox Style */
+/* form label {
+  display: flex;
+  align-items: auto;
+  gap: 10px;
+  font-size: 1rem;  
+} */
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .cards-container {
+    flex-direction: column; /* Stack cards vertically on smaller screens */
+    align-items: center;
   }
-  to {
-    transform: rotate(360deg);
+
+  .container {
+    padding: 0 10px; /* Reduce container padding on smaller screens */
+  }
+
+  /* Ensure form takes up full width on mobile */
+  form {
+    width: 100%;
+    max-width: none;
   }
 }
