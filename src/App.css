@@ -393,7 +393,7 @@ form label {
 
 .calendar-day:hover {
   background: rgba(255, 255, 255, 0.1);
-  background-color: #008c9e;
+  background-color: #0d515a;
   transform: translateY(-3px);  /* Lift the day slightly */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), 0 8px 20px rgba(0, 0, 0, 0.2);  /* 3D shadow effect */
 }
