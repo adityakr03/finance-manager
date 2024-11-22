@@ -393,6 +393,7 @@ form label {
 
 .calendar-day:hover {
   background: rgba(255, 255, 255, 0.1);
+  background-color: #008c9e;
   transform: translateY(-3px);  /* Lift the day slightly */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), 0 8px 20px rgba(0, 0, 0, 0.2);  /* 3D shadow effect */
 }
@@ -411,8 +412,16 @@ form label {
 
 .nav-button:hover {
   background-color: #008c9e;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3), 0 8px 20px rgba(0, 0, 0, 0.3); /* Shadow effect for selected date */
 }
 
+.nav-button-left:hover{
+  transform: translate3d(-5px, 0, 20px);
+}
+
+.nav-button-right:hover{
+  transform: translate3d(5px, 0, 20px);
+}
 
 /* Animation Keyframes */
 @keyframes fadeIn {

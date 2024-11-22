@@ -41,11 +41,11 @@ const CustomCalendar = ({ selectedDate, setSelectedDate }) => {
   return (
     <div className="calendar-container">
       <div className="calendar-header">
-        <button className="nav-button" onClick={handlePrevMonth}>‹</button>
+        <button className="nav-button-left nav-button" onClick={handlePrevMonth}>‹</button>
         <span className="month-year">
           {currentDate.toLocaleString('default', { month: 'long' })} {currentDate.getFullYear()}
         </span>
-        <button className="nav-button" onClick={handleNextMonth}>›</button>
+        <button className="nav-button-right nav-button" onClick={handleNextMonth}>›</button>
       </div>
       <div className="calendar-grid">
         {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day) => (
