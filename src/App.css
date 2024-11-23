@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');/* General Reset */
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap"); /* General Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Red Hat Display', sans-serif;
+  font-family: "Red Hat Display", sans-serif;
 }
 
 /* Enable Smooth Scrolling */
@@ -39,7 +39,8 @@ body {
 }
 
 /* Title */
-h1, h2 {
+h1,
+h2 {
   text-align: center;
   color: #ffffff;
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
@@ -70,7 +71,8 @@ h2 {
 }
 
 /* Card Styles */
-.card, .summary-card {
+.card,
+.summary-card {
   background: rgba(255, 255, 255, 0.05); /* Glassmorphic effect */
   backdrop-filter: blur(10px);
   border-radius: 15px;
@@ -84,16 +86,19 @@ h2 {
   animation: slideUp 0.5s forwards;
 }
 
-.card:hover, .summary-card:hover {
+.card:hover,
+.summary-card:hover {
   transform: translateY(-5px);
   box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.7);
 }
 
-.card:nth-child(odd), .summary-card:nth-child(odd) {
+.card:nth-child(odd),
+.summary-card:nth-child(odd) {
   animation-delay: 0.2s;
 }
 
-.card:nth-child(even), .summary-card:nth-child(even) {
+.card:nth-child(even),
+.summary-card:nth-child(even) {
   animation-delay: 0.4s;
 }
 
@@ -173,6 +178,7 @@ h2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 15px 0;
 }
 
 #records-list li:hover {
@@ -394,8 +400,8 @@ form label {
 .calendar-day:hover {
   background: rgba(255, 255, 255, 0.1);
   background-color: #0d515a;
-  transform: translateY(-3px);  /* Lift the day slightly */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), 0 8px 20px rgba(0, 0, 0, 0.2);  /* 3D shadow effect */
+  transform: translateY(-3px); /* Lift the day slightly */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), 0 8px 20px rgba(0, 0, 0, 0.2); /* 3D shadow effect */
 }
 
 .calendar-day.selected {
@@ -415,11 +421,11 @@ form label {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3), 0 8px 20px rgba(0, 0, 0, 0.3); /* Shadow effect for selected date */
 }
 
-.nav-button-left:hover{
+.nav-button-left:hover {
   transform: translate3d(-5px, 0, 20px);
 }
 
-.nav-button-right:hover{
+.nav-button-right:hover {
   transform: translate3d(5px, 0, 20px);
 }
 
@@ -461,6 +467,8 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .reset-btn:hover {
   background-color: #e64a19;
+  transform: scale(0.95);
+  transition: transform 0.5s ease, background-color 0.5s ease;
 }
 
 /* Delete Button Styles */
@@ -478,6 +486,8 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .delete-btn:hover {
   background-color: #d32f2f; /* Darker red on hover */
+  transform: scale(0.95);
+  transition: transform 0.5s ease, background-color 0.5s ease;
 }
 
 /* Record Details Section Styling */
@@ -516,4 +526,3 @@ input[type="number"]::-webkit-inner-spin-button {
   margin-top: 5px;
   font-size: 1rem;
 }
-
