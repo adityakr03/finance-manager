@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/finance-manager/static/css/main.917bafd0.css",
+    "main.js": "/finance-manager/static/js/main.4128c574.js",
+    "index.html": "/finance-manager/index.html",
+    "main.917bafd0.css.map": "/finance-manager/static/css/main.917bafd0.css.map",
+    "main.4128c574.js.map": "/finance-manager/static/js/main.4128c574.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.917bafd0.css",
+    "static/js/main.4128c574.js"
+  ]
+}
