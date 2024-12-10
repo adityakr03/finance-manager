@@ -1,7 +1,7 @@
 
 # Finance Manager: Your Personal Finance Tracking Tool
 
-Finance Manager is a lightweight, privacy-focused application designed to help you manage your finances effortlessly. With a focus on user data security and privacy, this project encrypts all data stored locally, ensuring complete control over your sensitive financial information.
+Finance Manager is a lightweight, responsive, privacy-focused application designed to help you manage your finances effortlessly. With a focus on user data security and privacy, this project encrypts all data stored locally, ensuring complete control over your sensitive financial information.
 
 ## Features
 
