@@ -1,6 +1,4 @@
----
-
-#** Finance Manager:** Your Personal Finance Tracking Tool 💳💼
+# Finance Manager: Your Personal Finance Tracking Tool 💳💼
 
 **Finance Manager** is a lightweight, privacy-first application designed to help you track and manage your finances effortlessly. With robust AES encryption, all data—including the encryption key—is securely stored locally, ensuring your financial information remains private and under your control.
 
